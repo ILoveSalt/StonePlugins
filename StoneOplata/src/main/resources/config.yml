@@ -1,4 +1,4 @@
-# StoneOplata — выдача покупок с сайта (mcsaura.su) на сервер Minecraft
+# StoneOplata — выдача покупок с сайта на сервер Minecraft
 # Безопасность: вебхук проверяется по подписи HMAC-SHA256
 #
 # Локально: сайт на localhost:3000 (server.js), вебхук на localhost:8765 — тот же secret-key в .env сайта.
@@ -8,7 +8,7 @@
 debug: false
 
 # Секретный ключ — ДОЛЖЕН совпадать с ключом в .env сайта (SECRET_KEY). Не публикуйте!
-secret-key: "stojpoiahsvougas98794i2k3h4i4869yihsyd806tysivhgihgpi8y2g4t89yttyyghsotgfo87wst874tyofuihgwougsdougvlojkxchlvbgouvgwsdgbvhpissssssgoghvfdskujgvuydv"
+secret-key: "1234321234"
 
 # Вебхук: бэкенд сайта отправляет сюда POST после покупки (localhost:8765 или IP:8765)
 webhook:
@@ -21,7 +21,7 @@ test-mode: true
 # Проверка доната: если у игрока привилегия выше или та же — привилегии ниже купить нельзя (нужен LuckPerms)
 donate-check:
   enabled: true
-  privilege-order: [hero, prince, baron, king, imperator, lord, overlord, knyaz, custom]
+  privilege-order: [ВАШ ДОНАТ_1, ВАШ ДОНАТ_2]
 
 # Кастомная привилегия: после покупки — бан навсегда, на сайте показывать «обратитесь в тех. поддержку»
 custom:
@@ -33,8 +33,7 @@ delivery-delay-ticks: 20
 # Команды выдачи. Плейсхолдеры: %player%, %amount%, %product_id%, %period%, %count%, %case_type%, %payment_id%
 # %period% для привилегий: 1, 3, forever
 delivery:
-  # Привилегия: product_id = hero, prince, baron, king, imperator, lord, overlord, knyaz, custom
-  # На срок (1 или 3 мес) — temp с %period% (30d, 90d); навсегда — privilege-forever-command
+  # Покупка привилегии на срок (1 или 3 мес) — temp с %period% (30d, 90d); навсегда — privilege-forever-command
   privilege-command: "lp user %player% parent addtemp %product_id% %period%"
   privilege-forever-command: "lp user %player% parent add %product_id%"
   privilege-periods:
@@ -56,3 +55,4 @@ messages:
   webhook-bad-signature: "&c[StoneOplata] Вебхук отклонён: неверная подпись."
   webhook-delivered: "&a[StoneOplata] Покупка выдана: %player% — %product_type%."
   testpay-done: "&aТестовая выдача выполнена для %player%: %product_type%."
+
