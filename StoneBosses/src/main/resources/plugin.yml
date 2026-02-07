@@ -2,6 +2,7 @@ name: StoneBosses
 version: ${project.version}
 main: hgds.stonebosses.StoneBosses
 api-version: '1.17'
+authors: hgds_2
 description: Плагин призыва боссов для StoneAura
 softdepend: [PlayerPoints]
 
@@ -17,3 +18,4 @@ permissions:
   stonebosses.admin:
     description: Админ-команды (create, forcestart, kill, list, add, setspawn)
     default: op
+
