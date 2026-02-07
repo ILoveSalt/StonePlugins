@@ -1,0 +1,58 @@
+# StoneOplata — выдача покупок с сайта (mcsaura.su) на сервер Minecraft
+# Безопасность: вебхук проверяется по подписи HMAC-SHA256
+#
+# Локально: сайт на localhost:3000 (server.js), вебхук на localhost:8765 — тот же secret-key в .env сайта.
+# Прод: в .env сайта укажите WEBHOOK_TARGET=http://IP_СЕРВЕРА:8765/stoneoplata и тот же secret-key.
+
+# Отладка: true — логировать проверки доната и вебхуки в консоль сервера
+debug: false
+
+# Секретный ключ — ДОЛЖЕН совпадать с ключом в .env сайта (SECRET_KEY). Не публикуйте!
+secret-key: "stojpoiahsvougas98794i2k3h4i4869yihsyd806tysivhgihgpi8y2g4t89yttyyghsotgfo87wst874tyofuihgwougsdougvlojkxchlvbgouvgwsdgbvhpissssssgoghvfdskujgvuydv"
+
+# Вебхук: бэкенд сайта отправляет сюда POST после покупки (localhost:8765 или IP:8765)
+webhook:
+  port: 8765
+  path: "/stoneoplata"
+
+# Тестовый режим: если true, принимаются платежи с полем "test": true (для проверки выдачи)
+test-mode: true
+
+# Проверка доната: если у игрока привилегия выше или та же — привилегии ниже купить нельзя (нужен LuckPerms)
+donate-check:
+  enabled: true
+  privilege-order: [hero, prince, baron, king, imperator, lord, overlord, knyaz, custom]
+
+# Кастомная привилегия: после покупки — бан навсегда, на сайте показывать «обратитесь в тех. поддержку»
+custom:
+  ban-command: "ban %player% Куплена кастомная привилегия. Обратитесь в тех. поддержку."
+
+# Задержка выдачи (тики): выполнять команды через N тиков после вебхука (игрок может быть оффлайн — команды выполнятся при входе через вашу систему)
+delivery-delay-ticks: 20
+
+# Команды выдачи. Плейсхолдеры: %player%, %amount%, %product_id%, %period%, %count%, %case_type%, %payment_id%
+# %period% для привилегий: 1, 3, forever
+delivery:
+  # Привилегия: product_id = hero, prince, baron, king, imperator, lord, overlord, knyaz, custom
+  # На срок (1 или 3 мес) — temp с %period% (30d, 90d); навсегда — privilege-forever-command
+  privilege-command: "lp user %player% parent addtemp %product_id% %period%"
+  privilege-forever-command: "lp user %player% parent add %product_id%"
+  privilege-periods:
+    "1": "30d"
+    "3": "90d"
+    "forever": "forever"
+
+  # Донат-валюта (количество в amount)
+  donate-currency-command: "p give %player% %amount%"
+
+  # Кейсы: case_type = donate, coins, donate_currency
+  case-donate-command: "case givecase %player% donate %count%"
+  case-coins-command: "case givecase %player% coins %count%"
+  case-donate-currency-command: "givecase donate_currency %player% %count%"
+
+messages:
+  delivery-success: "&aВам была успешно выданна покупка."
+  delivery-failed: "&cНе удалось выдать покупку. Обратитесь в поддержку."
+  webhook-bad-signature: "&c[StoneOplata] Вебхук отклонён: неверная подпись."
+  webhook-delivered: "&a[StoneOplata] Покупка выдана: %player% — %product_type%."
+  testpay-done: "&aТестовая выдача выполнена для %player%: %product_type%."

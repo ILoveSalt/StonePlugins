@@ -1,0 +1,17 @@
+name: StoneOplata
+version: '1.0'
+main: hgds.stoneoplata.StoneOplata
+api-version: '1.17'
+description: Выдача покупок с сайта mcsaura.su на сервер по вебхуку (HMAC-SHA256)
+author: StoneAuracommands:
+  stoneoplata:
+    description: Управление плагином и тестовая выдача
+    usage: /stoneoplata <reload|testpay> [аргументы]
+
+permissions:
+  stoneoplata.admin:
+    description: Перезагрузка конфига и вебхука
+    default: op
+  stoneoplata.testpay:
+    description: Тестовая выдача покупки (проверка выдачи без оплаты)
+    default: op
