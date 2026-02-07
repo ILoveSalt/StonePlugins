@@ -9,7 +9,7 @@
   <version>1.0.0</version>
   <packaging>jar</packaging>
   <name>StoneBosses</name>
-  <description>Плагин призыва боссов для StoneAura</description>
+  <description>Плагин призыва боссов для сервера Minecraft</description>
 
   <properties>
     <java.version>16</java.version>
