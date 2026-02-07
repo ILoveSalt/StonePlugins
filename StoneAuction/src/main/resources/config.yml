@@ -1,0 +1,5 @@
+lot_expire_hours: 48
+
+economy:
+  command_take: "eco take %player% %amount%"
+  command_give: "eco give %player% %amount%"

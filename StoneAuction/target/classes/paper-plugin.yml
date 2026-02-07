@@ -1,0 +1,19 @@
+name: StoneAuction
+version: '1.0'
+main: hgds.stoneauction.StoneAuction
+api-version: '1.17'
+commands:
+  ah:
+    description: Обычный аукцион
+    aliases: [auction]
+  dah:
+    description: Донатный аукцион
+  cah:
+    description: Кейсовый аукцион
+permissions:
+  stoneauction.use:
+    description: Использование аукциона
+    default: true
+  stoneauction.admin:
+    description: Административные права
+    default: op
