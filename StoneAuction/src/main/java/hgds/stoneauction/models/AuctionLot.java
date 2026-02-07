@@ -9,7 +9,7 @@ public class AuctionLot {
     private final String id;
     private final UUID sellerId;
     private final String category;
-    private final Object item; // ItemStack, String (caseId), String (rank)
+    private final Object item; 
     private final double price;
     private final long createdAt;
     private int amount;
