@@ -1,0 +1,7 @@
+hgds\stonekits\models\Kit.class
+hgds\stonekits\commands\KitCommand.class
+hgds\stonekits\managers\KitManager.class
+hgds\stonekits\gui\KitGUI.class
+hgds\stonekits\gui\KitGUIListener.class
+hgds\stonekits\StoneKits.class
+hgds\stonekits\gui\KitGUI$KitHolder.class

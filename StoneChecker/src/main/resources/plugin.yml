@@ -1,0 +1,22 @@
+name: StoneChecker
+version: '${project.version}'
+main: hgds.stonechecker.StoneChecker
+api-version: 1.17
+
+permissions:
+  stonechecker.use:
+    description: Позволяет использовать команды проверки (/check, /check cheat и т.д.)
+    default: op
+  stonechecker.bypass:
+    description: Обход проверки (для подозреваемых)
+    default: false
+
+commands:
+  check:
+    description: Начать проверку или управлять текущей
+    usage: /<command> <ник> | discord|telegram|anydesk <ник> | addtime | stop | cheat <ник>
+    permission: stonechecker.use
+  contact:
+    description: Приватное сообщение проверяющему (для подозреваемых)
+    usage: /<command> <сообщение>
+    permission: null

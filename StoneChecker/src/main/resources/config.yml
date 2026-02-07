@@ -1,0 +1,122 @@
+settings:
+  freeze_on_check: true
+  check_time_limit: 10m
+  allow_contact: true
+
+afk:
+  enabled: true
+  threshold: 5m
+  block_check: true
+  message: "&cИгрок AFK более 5 минут. Проверка невозможна."
+
+placeholders:
+  reason: "%stonechecker_reason%"
+  duration: "%stonechecker_duration%"
+  moderator: "%stonechecker_moderator%"
+  method: "%stonechecker_method%"
+
+litebans:
+  ban_command: "ban %player% %stonechecker_duration% Читы (%stonechecker_reason%)"
+
+messages:
+  prefix: "&8[&bStoneChecker&8] "
+  no_permission: "&cНет прав."
+
+  check_started: "&fВы вызваны на проверку через &b%stonechecker_method%&f. Проверяющий: &e%stonechecker_moderator%"
+  send_id: "&fУ вас есть &c10 минут&f, чтобы отправить свой ID. Используйте: &b/contact <id>"
+  confess_hint: "&7Если хотите признаться — напишите: &cЯ с читами"
+  confess_success: "&cВы признались в использовании читов. Срок наказания: 75 дней."
+  afk_warning: "&cAFK не освобождает от проверки."
+  contact_blocked: "&cВы не можете писать в чат. Используйте /contact <сообщение>."
+  contact_to_mod: "&b[CONTACT] &f%player%: &7%message%"
+  contact_to_player: "&b[CONTACT] &f%stonechecker_moderator%: &7%message%"
+
+  ban_applied: "&cИгрок %player% забанен на %stonechecker_duration% по причине: Читы (%stonechecker_reason%)"
+
+commands:
+  addtime:
+    max_total: 10m
+    success: "&aВремя проверки увеличено на %time%. Новое время: %total%."
+    too_much: "&cНельзя увеличить время более чем до 10 минут."
+    wrong_state: "&cНельзя добавить время на этом этапе."
+
+  stop:
+    success: "&aПроверка остановлена. Нарушений не найдено."
+    wrong_state: "&cНельзя остановить проверку на этом этапе."
+
+gui:
+  main:
+    title: "&bПанель проверки"
+    items:
+      suspect:
+        slot: 11
+        material: "PLAYER_HEAD"
+        name: "&eПодозреваемый: %player%"
+        lore:
+          - "&7Метод: &b%stonechecker_method%"
+          - "&7Проверяющий: &e%stonechecker_moderator%"
+      duration:
+        slot: 13
+        material: "CLOCK"
+        name: "&eВыбрать срок бана"
+        lore:
+          - "&7Нажмите, чтобы выбрать срок"
+      reason:
+        slot: 15
+        material: "BOOK"
+        name: "&eВыбрать причину"
+        lore:
+          - "&7Нажмите, чтобы выбрать чит"
+
+  durations:
+    title: "&bВыбор срока бана"
+    items:
+      "55":
+        material: "IRON_PICKAXE"
+        name: "&e55 дней"
+        lore:
+          - "&7Используется для XRAY"
+      "90":
+        material: "REDSTONE"
+        name: "&c90 дней"
+        lore:
+          - "&7Используется для DELTA, SIGMA, NURSULTAN"
+
+  reasons:
+    title: "&bВыбор причины"
+    items:
+      XRAY:
+        material: "IRON_ORE"
+        name: "&eXRAY"
+        lore:
+          - "&7Рентген"
+      DELTA:
+        material: "REDSTONE"
+        name: "&cDELTA"
+        lore:
+          - "&7Клиент DELTA"
+      NURSULTAN:
+        material: "TOTEM_OF_UNDYING"
+        name: "&6NURSULTAN"
+        lore:
+          - "&7Клиент NURSULTAN"
+      SIGMA:
+        material: "NETHER_STAR"
+        name: "&fSIGMA"
+        lore:
+          - "&7Клиент SIGMA"
+      ASTOLFO:
+        material: "PINK_WOOL"
+        name: "&dASTOLFO"
+        lore:
+          - "&7Клиент ASTOLFO"
+      RAVEN:
+        material: "FEATHER"
+        name: "&fRAVEN"
+        lore:
+          - "&7Клиент RAVEN"
+      LIQUIDBOUNCE:
+        material: "SLIME_BALL"
+        name: "&aLIQUIDBOUNCE"
+        lore:
+          - "&7Клиент LiquidBounce"

@@ -1,0 +1,20 @@
+name: StoneKits
+version: '${project.version}'
+main: hgds.stonekits.StoneKits
+api-version: '1.17'
+
+commands:
+  kit:
+    description: Наборы предметов
+    usage: /kit <набор> | preview | create | delete | edit
+
+permissions:
+  stonekits.use:
+    description: Использовать /kit
+    default: true
+  stonekits.admin:
+    description: Создание/удаление/редактирование наборов
+    default: op
+  stonekits.kit.*:
+    description: Доступ ко всем наборам
+    default: op
