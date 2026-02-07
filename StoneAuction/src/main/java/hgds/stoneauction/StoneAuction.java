@@ -17,13 +17,10 @@ public final class StoneAuction extends JavaPlugin {
         
         saveDefaultConfig();
         
-        // Инициализация интеграций
         integrationManager = new IntegrationManager(this);
-        
-        // Инициализация менеджеров
+
         auctionManager = new AuctionManager(this);
-        
-        // Регистрация команд
+
         getCommand("ah").setExecutor(new AuctionCommand(this));
         getCommand("dah").setExecutor(new AuctionCommand(this));
         getCommand("cah").setExecutor(new AuctionCommand(this));
