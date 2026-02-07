@@ -1,0 +1,4 @@
+name: StoneBosses
+version: '1.0.0'
+main: hgds.stonebosses.StoneBosses
+api-version: '1.17'

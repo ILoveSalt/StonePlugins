@@ -1,0 +1,18 @@
+# Пример конфига босса (копия в resources для первого запуска)
+# Реальный конфиг создаётся в папке plugins/StoneBosses/bosses/
+Name: "&x&F&F&1&F&0&0М&x&F&F&1&B&0&0у&x&F&F&1&6&0&0ч&x&F&F&1&2&0&0и&x&F&F&0&D&0&0т&x&F&F&0&9&0&0е&x&F&F&0&4&0&0л&x&F&F&0&0&0&0ь"
+mob: ZOMBIE
+heatlh: 2048
+armor: 40
+damage: 20
+speed: 0.3
+effect_damage:
+  - SLOWNESS:5:5
+spawn_children_heatlh: 500
+children:
+  quantity: 5
+  name: "&x&F&F&1&F&0&0Д&x&F&F&1&B&0&0ь&x&F&F&1&7&0&0я&x&F&F&1&3&0&0в&x&F&F&1&0&0&0о&x&F&F&0&C&0&0л&x&F&F&0&8&0&0я&x&F&F&0&4&0&0т&x&F&F&0&0&0&0а"
+  mob: ZOMBIE
+  heatlh: 128
+  armor: 5
+  damage: 10

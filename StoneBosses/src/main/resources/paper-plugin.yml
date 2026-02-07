@@ -1,0 +1,4 @@
+name: StoneBosses
+version: '${project.version}'
+main: hgds.stonebosses.StoneBosses
+api-version: '1.17'

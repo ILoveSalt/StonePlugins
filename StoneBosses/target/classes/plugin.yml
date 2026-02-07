@@ -1,0 +1,19 @@
+name: StoneBosses
+version: 1.0.0
+main: hgds.stonebosses.StoneBosses
+api-version: '1.17'
+description: Плагин призыва боссов для StoneAura
+softdepend: [PlayerPoints]
+
+commands:
+  bosses:
+    description: Команды плагина боссов
+    usage: /bosses <delay|gui|create|forcestart|kill|list|add|setspawn>
+
+permissions:
+  stonebosses.player:
+    description: Команды для игроков (delay, gui)
+    default: true
+  stonebosses.admin:
+    description: Админ-команды (create, forcestart, kill, list, add, setspawn)
+    default: op

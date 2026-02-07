@@ -1,0 +1,36 @@
+# Таймер спавна босса (секунды)
+bosses_spawn: 3600
+# Какой босс спавнить (имя файла без .yml из папки bosses/)
+active_boss: zombi_king
+
+# Точка спавна босса
+spawn:
+  arena: world
+  x: 0.0
+  y: 64.0
+  z: 0.0
+  yaw: 0.0
+
+# Сообщения при появлении босса
+message:
+  spawn_bosses:
+    - "Трепещите людишки"
+    - "На /warp pvp восстал из мертвых босс %name_boss%"
+    - "Кто больше всего нанесет урона получит ценный приз"
+    - "Удачи в победе над боссом"
+  damage_boss:
+    - "%damage_1_player_name% - %damage_1_player_damage% урона нанесено боссу"
+    - "%damage_2_player_name% - %damage_2_player_damage% урона нанесено боссу"
+    - "%damage_3_player_name% - %damage_3_player_damage% урона нанесено боссу"
+  kill_bosses:
+    - "Босс был побежден и тот кто был на 1 месте получит топовую награду:"
+    - "%damage_1_player_name% - %damage_1_player_damage%"
+    - "Этот игрок получил %amount_damage_point% коинов"
+  no_kill_bosses:
+    - "Боссу стало скучно и он ушел в преисподнюю"
+
+# Интервал сообщений об уроне (секунды)
+damage_message_interval: 180
+
+# Коинов за 1 урон (PlayerPoints)
+coins_per_damage: 2
